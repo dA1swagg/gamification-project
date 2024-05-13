@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Quiz Game - Video</title>
+    <link rel="stylesheet" href="/static/styling.css">
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'style.css' %}">
+    <style>
+        body{
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            padding: 0;
+        }
+        
+        .container {
+            text-align: center;
+        }
+        
+        .video-container {
+            width: 100%;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        
+        video {
+            width: 100%;
+            height: auto;
+        }
+        
+        .home-button {
+            background-color: #000; /* Black button */
+            color: #fff; /* White text */
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            margin-top: 20px;
+            width: 50%; /* Adjust width */
+            text-align: center;
+            text-decoration: none;
+            display: block; /* Make it a block element */
+            margin-left: auto; /* Center align */
+            margin-right: auto; /* Center align */
+        }
+
+        .home-button:hover {
+            background-color: #333; /* Darker black on hover */
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Watch the Training Video</h1>
+        <div class="video-container">
+            <!-- Replace 'your_video_url' with the actual URL of your training video -->
+            <video id="trainingVideo" controls>
+                <source src="{% static 'assets/cyberinfovdo.mp4' %}" type="video/mp4">
+                Your browser does not support the video tag.
+            </video>
+        </div>
+        <a href="{% url 'quiz' %}"><button id="startQuizButton">Start Quiz</button></a>
+        <br>
+        <a href="{% url 'home' %}" class="home-button">Go to Home Page</a>
+    </div>
+    <script>
+        // quiz_game/static/script.js
+
+        // Function to display a confirmation message when starting the quiz
+        function confirmStartQuiz() {
+            if (confirm("Are you sure you want to start the quiz?")) {
+                // If the user confirms, redirect to the quiz page
+                window.location.href = "{% url 'quiz' %}";
+            } else {
+                // If the user cancels, do nothing
+                return false;
+            }
+        }
+
+        // Event listener for the Start Quiz button
+        document.getElementById("startQuizButton").addEventListener("click", confirmStartQuiz);
+
+        // Function to toggle fullscreen mode
+        function toggleFullScreen() {
+            var video = document.getElementById("trainingVideo");
+            if (!document.fullscreenElement) {
+                video.requestFullscreen().catch(err => {
+                    alert(`Error attempting to enable full-screen mode: ${err.message} (${err.name})`);
+                });
+            } else {
+                document.exitFullscreen();
+            }
+        }
+
+        // Event listener for the fullscreen button
+        document.getElementById("trainingVideo").addEventListener("dblclick", toggleFullScreen);
+
+        // Resize video container on window resize
+        window.addEventListener('resize', resizeVideoContainer);
+
+        function resizeVideoContainer() {
+            var videoContainer = document.querySelector('.video-container');
+            var videoWidth = document.querySelector('video').offsetWidth;
+            videoContainer.style.height = (videoWidth * 9 / 16) + 'px';
+        }
+
+        // Call resizeVideoContainer() initially to set the height
+        resizeVideoContainer();
+
+    </script>
+</body>
+</html>

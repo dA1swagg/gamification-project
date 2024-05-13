@@ -1,0 +1,97 @@
+<!-- quiz_game/templates/quiz_game/quiz.html -->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Quiz Game - Quiz</title>
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'style.css' %}">
+    <style>
+        .container {
+            max-width: 800px;
+            margin: 50px auto;
+            padding: 20px;
+            background-color: #f0f0f0;
+            border-radius: 5px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            color: black; /* Set text color to black */
+        }
+
+        h1 {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+
+        .question {
+            margin-bottom: 30px;
+        }
+
+        h2 {
+            font-size: 20px;
+            margin-bottom: 10px;
+        }
+
+        h3 {
+            font-size: 16px;
+            margin-bottom: 15px;
+        }
+
+        label {
+            display: block;
+            margin-bottom: 10px;
+        }
+
+        input[type="radio"] {
+            margin-right: 10px;
+        }
+
+        button {
+            background-color: red;
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+
+        button:hover {
+            background-color: #ff3333;
+        }
+
+        #nextButton {
+            margin-top: 20px;
+        }
+
+</style>
+</head>
+<body>
+    <div class="container">
+        <h1>Quiz</h1>
+        <form id="quizForm" action="{% url 'submit_quiz' %}" method="post">
+            {% csrf_token %}
+            {% if questions %}
+                {% for question in questions %}
+                    <div class="question" id="question{{ question.id }}" data-question-id="{{ question.id }}">
+                        <h2>{{ question.scene_title }}</h2> <!-- Display the scene title -->
+                        <h3>{{ question.text }}</h3> <!-- Display the question text -->
+                        {% for option in question.option_set.all %}
+                            <label>
+                                <input type="radio" name="question{{ question.id }}" value="{{ option.id }}" data-is-correct="{{ option.is_correct }}">
+                                {{ option.text }}
+                            </label>
+                        {% endfor %}
+                    </div>
+                {% endfor %}
+                <button id="nextButton" type="button">Next Question</button>
+                <button type="submit" style="display: none;">Submit</button>
+            {% else %}
+                <p>No questions available.</p>
+            {% endif %}
+        </form>
+    </div>
+    <script src="{% static 'script.js' %}"></script>
+</body>
+</html>

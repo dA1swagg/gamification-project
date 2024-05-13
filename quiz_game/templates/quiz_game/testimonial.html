@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Testimonials - Cyberbullying Awareness Game</title>
+    <link rel="stylesheet" href="/static/styling.css">
+    {% load static %}
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+            margin: 0;
+            padding: 0;
+            background-color: black;
+            color: white;
+            
+        }
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        h1, h2 {
+            text-align: center;
+            color: rgb(243, 54, 54);;
+        }
+        .testimonial {
+            margin-bottom: 30px;
+            padding: 20px;
+            background-color: rgb(212, 41, 41);
+            border-radius: 5px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        }
+        .testimonial p {
+            margin-bottom: 10px;
+        }
+        .testimonial .author {
+            font-style: italic;
+            text-align: right;
+            color: black;
+        }
+        .topnav .animate{
+            animation: showRight 1s ease forwards;
+            animation-delay: calc(.3s * var(-i));
+          }
+          @keyframes showRight{
+            100%{
+              width: 0;
+            }
+          }
+          .topnav {
+            background-color:  rgb(197, 0, 0);
+            overflow: hidden;
+            transition: top 0.3s;
+            position: relative;
+        }
+        
+        .topnav a {
+            text-decoration: none;
+            padding: 20px;
+            text-align: center;
+            float: left;
+            color: white;
+        }
+        .topnav a:hover{
+          color: aqua ;
+        }
+        .topnav a.active {
+            background-color: rgb(255, 255, 255);
+            color: rgb(17, 13, 13);
+          }
+          
+          @media screen and (max-width: 700px) {
+            .topnav a,.topnav input[type=text] {
+              float: none;
+              display: block;
+            }
+          }
+        .topnav input[type=text]
+        { float: right;
+          padding: 10px;
+          border: none;
+          margin-top: 12px;
+          margin-right: 120px;
+          font-size: 17px;
+        }
+    </style>
+</head>
+<body>
+    <header class="header2">
+        <a href="/"> <img src="{% static 'assets/Clean Web-2.png' %}" alt="logo" height="150px" width="150px"> </a>
+     </header>
+    <div class="nav_bar">
+        <nav class="topnav" id="=myTopnav">
+            <a  href="/"><i class="fa fa-fw fa-home"></i>Home</a>
+            <a href="/about">About</a>
+            <a class="active" href="/testimonial">Testimonials</a>
+            <a href="/guidelines">Guidelines</a>
+            <a href="/contact">Contact</a>
+            <input type="text" class="search" placeholder="Search.." >
+            <!-- to make web responsive in small screen -->
+        </nav>
+    </div>
+    <div class="container">
+        <h1>Testimonials</h1>
+        
+        <div class="testimonial">
+            <p>"The Cyberbullying Awareness Game is an invaluable resource for educating teenagers about the dangers of online harassment. The interactive features and engaging content make learning about cyberbullying both informative and enjoyable."</p>
+            <p class="author">- Emily, High School Teacher</p>
+        </div>
+        
+        <div class="testimonial">
+            <p>"I've learned so much from playing the Cyberbullying Awareness Game. It's helped me recognize the signs of cyberbullying and understand how to respond effectively. I highly recommend it to anyone looking to learn more about online safety."</p>
+            <p class="author">- David, Student</p>
+        </div>
+        
+        <div class="testimonial">
+            <p>"As a parent, I appreciate the Cyberbullying Awareness Game for its educational value and emphasis on promoting empathy and respect online. It's a valuable tool for starting important conversations with my kids about cyberbullying."</p>
+            <p class="author">- Sarah, Parent</p>
+        </div>
+        
+        <!-- Add more testimonials as needed -->
+        
+    </div>
+</body>
+</html>

@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>contact</title>
+    <link rel="stylesheet" href="/static/styling.css">
+    <link rel='stylesheet' href='/static/contact.css'>
+    <link rel="stylesheet" href="color.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+      <!-- =====BOX ICONS===== -->
+      <link href='https://cdn.jsdelivr.net/npm/boxicons@2.0.5/css/boxicons.min.css' rel='stylesheet'>
+      {% load static %}
+      <style>
+        body {color:white;}
+      </style>
+        
+</head>
+<body>
+    <header class="header2">
+        <a href="/"> <img src="{% static 'assets/Clean Web-2.png' %}" alt="logo" height="150px" width="150px"> </a>
+     </header>
+    <div class="nav_bar">
+        <nav class="topnav" id="=myTopnav">
+            <a href="/"><i class="fa fa-fw fa-home"></i>Home</a>
+            <a href="/about">About</a>
+            <a href="/testimonial">Testimonials</a>
+            <a href="/guidelines">Guidelines</a>
+            <a class="active"href="/contact">Contact</a>
+        </nav>
+    </div> 
+    <section class="contact">
+        <div class="sec-title pad-15">
+            <h2>Contact Me</h2>
+            <h3>We'll get back to you soon!</h3>
+        </div>
+                <main>
+        
+                    <form action="" method="" class="form">
+                        <div class="input-group">
+                            <input type="text" name="first_name" id="first-name" placeholder="First name">
+                            <label for="first-name">First name</label>
+                        </div>
+                        
+                        <div class="input-group">
+                            <input type="text" name="last_name" id="last-name" placeholder="Last Name">
+                            <label for="last-name">Last name</label>
+                        </div>
+        
+                        <div class="input-group">
+                            <input type="email" name="e-mail" id="e-mail" placeholder="e-mail">
+                            <label for="e-mail">e-mail</label>
+                        </div>
+        
+                        <div class="textarea-group">
+                            <textarea name="message" id="message" rows="5" placeholder="Message"></textarea>
+                            <label for="message">Message</label>
+                        </div>
+        
+                        <div class="button-div">
+                            <button type="submit">Send</button>
+                        </div>
+                    </form>
+                </main>
+    </section>
+                
+{% comment %}                         
+                
+    
+        
+    <div class="footer">
+        <div class="contain">
+            <div class="col">
+                <h1>Developers</h1>
+                <ul>
+                    <li>Mosh</li>
+                    <li>Mike</li>
+                    <li>John Smith</li>
+                    <li>Jayed Ahsan</li>
+                    <li>Jarif Kahn</li>
+                </ul>
+            </div>
+            <div class="col">
+                <h1>Creation</h1>
+                <ul>
+                    <li>Chat-bot</li>
+                    <li>Social-site</li>
+                    <li>Software</li>
+                    <li>Games</li>
+                    <li>News-blogs</li>
+                </ul>
+            </div>
+            <div class="col">
+                <h1>About</h1>
+                <ul>
+                    <li>Terms</li>
+                    <li>Mission</li>
+                    <li>Services</li>
+                    <li>Education</li>
+                    <li>Get in touch</li>
+                </ul>
+            </div>
+            <div class="col">
+                <h1>Website</h1>
+                <ul>
+                    <li>Codoxia</li>
+                    <li>Codo Code</li>
+                    <li>CodePotro</li>
+                    <li>CodeRunner</li>
+                    <li>Code-templates</li>
+                    <li>CodeKhan</li>
+                </ul>
+            </div>
+            <div class="col">
+                <h1>Support</h1>
+                <ul>
+                    <li>Contact us</li>
+                    <li>Send Email</li>
+                    <li>Buy a phone</li>
+                </ul>
+            </div>
+            <div class="col social">
+                <h1>Social</h1>
+                <ul>
+                   <li> <a href="#" class="footer__icon"><i class='bx bxl-facebook' ></i></a></li>
+                   <li> <a href="#" class="footer__icon"><i class='bx bxl-instagram' ></i></a></li>
+                   <li> <a href="#" class="footer__icon"><i class='bx bxl-twitter' ></i></a></li>
+                </ul>
+            </div>
+            <div class="clearfix"></div>
+            <footer class="foot">
+                <p> Copyright © 2020 - All rights Reserved - Designed by AhsanParadise </p>
+            </footer>
+        </div> {% endcomment %}
+</body>
+</html>

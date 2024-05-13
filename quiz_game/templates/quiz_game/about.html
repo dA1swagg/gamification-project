@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About Cyberbullying Awareness Game</title>
+    <link rel="stylesheet" href="/static/styling.css">
+    {% load static %}
+    <style>
+        /* Add your CSS styles here */
+        /* This is just a basic example. You can customize it further. */
+        body {
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+            margin: 0;
+            padding: 0;
+            background-color: black;
+            color: white;
+        }
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        h1 {
+            text-align: center;
+            color: rgb(197, 0, 0);
+        }
+        p {
+            margin-bottom: 20px;
+        }
+        .social-links {
+            margin-top: 20px;
+        }
+        .social-links a {
+            display: inline-block;
+            margin-right: 10px;
+            text-decoration: none;
+            color: #007bff;
+        }
+    </style>
+</head>
+<body>
+    <header class="header2">
+        <a href="/"> <img src="{% static 'assets/Clean Web-2.png' %}" alt="logo" height="150px" width="150px"> </a>
+     </header>
+    <div class="nav_bar">
+        <nav class="topnav" id="=myTopnav">
+            <a href="/"><i class="fa fa-fw fa-home"></i>Home</a>
+            <a class="active" href="/about">About</a>
+            <a href="/testimonial">Testimonials</a>
+            <a href="/guidelines">Guidelines</a>
+            <a href="/contact">Contact</a>
+            <input type="text" class="search" placeholder="Search.." >
+            <!-- to make web responsive in small screen -->
+        </nav>
+    </div> 
+    <div class="container">
+        <h1>About Our Cyberbullying Awareness Game</h1>
+        <p>Welcome to our Cyberbullying Awareness Game, an interactive platform designed to educate and empower teenagers to combat cyberbullying and create a safer online community for all.</p>
+        
+        <h2>Our Mission</h2>
+        <p>At Cyberbullying Awareness Game, our mission is simple yet profound: to raise awareness about the prevalence and impact of cyberbullying, equip individuals with knowledge and resources to recognize and respond to online harassment, and foster empathy, support, and respect among peers.</p>
+        
+        <h2>What We Offer</h2>
+        <ul>
+            <li>Video Scenarios: Immerse yourself in realistic scenarios depicting different cyberbullying situations and explore the consequences of online harassment on individuals' mental health and well-being.</li>
+            <li>Interactive Quizzes: Test your knowledge and understanding of cyberbullying issues with fun and informative quizzes covering topics such as recognizing signs of cyberbullying, responding effectively to online harassment, and promoting digital citizenship.</li>
+            <li>Gamified Challenges: Earn points, unlock badges, and level up as you progress through the game and demonstrate your commitment to raising awareness and combating cyberbullying.</li>
+            <li>Community Support: Connect with fellow players, share experiences, and exchange tips and advice on navigating the digital landscape safely and responsibly.</li>
+            <li>Resources and Support: Access additional resources, such as articles, videos, helplines, and support groups, to further educate yourself and seek assistance if you or someone you know is experiencing cyberbullying.</li>
+        </ul>
+        
+        <h2>Get Involved</h2>
+        <p>Join us in the fight against cyberbullying! Together, we can make a difference by spreading awareness, promoting kindness and respect online, and standing up against online harassment wherever it occurs.</p>
+        
+        <h2>Connect With Us</h2>
+        <div class="social-links">
+            <a href="#">Facebook</a>
+            <a href="#">Twitter</a>
+            <a href="#">Instagram</a>
+        </div>
+        
+        <h2>Contact Us</h2>
+        <p>Have questions, feedback, or suggestions? We'd love to hear from you! Reach out to us at <a href="mailto:info@cyberbullyingawarenessgame.com">info@cyberbullyingawarenessgame.com</a> or fill out our online contact form.</p>
+    </div>
+</body>
+</html>

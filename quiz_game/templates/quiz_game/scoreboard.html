@@ -1,0 +1,89 @@
+<!-- quiz_game/templates/quiz_game/scoreboard.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Scoreboard</title>
+    {% load static %}
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #000;
+            color: #fff;
+            margin: 0;
+            padding: 0;
+        }
+
+        h1 {
+            text-align: center;
+            margin-top: 20px;
+        }
+
+        table {
+            width: 80%;
+            margin: 20px auto;
+            border-collapse: collapse;
+        }
+
+        th, td {
+            padding: 10px;
+            text-align: left;
+        }
+
+        th {
+            background-color: #ff0000;
+        }
+
+        tr:nth-child(even) {
+            background-color: #333;
+        }
+
+        tr:nth-child(odd) {
+            background-color: #666;
+        }
+
+        a {
+            display: block;
+            text-align: center;
+            margin-top: 20px;
+            color: #fff;
+            text-decoration: none;
+            border: 1px solid #ff0000;
+            padding: 10px 20px;
+            border-radius: 5px;
+            background-color: #ff0000;
+            transition: background-color 0.3s;
+        }
+
+        a:hover {
+            background-color: #cc0000;
+        }
+    </style>
+</head>
+<body>
+    <header class="header2">
+        <a href="/"> <img src="{% static 'assets/Clean Web-2.png' %}" alt="logo" height="150px" width="150px"> </a>
+     </header>
+    <h1>Scoreboard</h1>
+    <table>
+        <thead>
+            <tr>
+                <th>Rank</th>
+                <th>User</th>
+                <th>Score</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for rank, score in scoreboard %}
+                <tr>
+                    <td>{{ rank }}</td>
+                    <td>{{ score.user }}</td>
+                    <td>{{ score.score }}</td>
+                </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+    <a href="{% url 'home' %}">Go Back</a>
+</body>
+</html>

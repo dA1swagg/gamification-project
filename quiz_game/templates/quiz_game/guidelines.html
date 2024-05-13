@@ -1,0 +1,142 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Game Guidelines - Cyberbullying Awareness Game</title>
+    <link rel="stylesheet" href="/static/styling.css">
+    {% load static %}
+    <style>
+        /* Add your CSS styles here */
+        body {
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+            margin: 0;
+            padding: 0;
+            background-color: black;
+            color: white;
+        }
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        h1 {
+            text-align: center;
+            color:  #c20000 ;
+        }
+        h2 {
+            position: relative;
+            padding: 10px 20px;
+            margin-bottom: 10px;
+            color: #fff;
+   
+            background-color:rgb(212, 41, 41);
+            border-radius: 20px;
+            cursor: pointer;
+        }
+        h2:hover {
+            background-color: #ff4136;
+        }
+        p {
+            margin-bottom: 20px;
+        }
+        ul {
+            margin-bottom: 20px;
+            list-style-type: none;
+            padding: 0;
+        }
+        ul li {
+            margin-bottom: 10px;
+            padding-left: 20px;
+            position: relative;
+        }
+        ul li:before {
+            content: "\2022";
+            position: absolute;
+            left: 0;
+            color: #007bff;
+        }
+        .content {
+            display: none;
+            margin-top: 10px;
+            padding: 10px;
+            background-color: rgb(212, 41, 41);
+             background-color: rgb(163, 163, 116);
+            border-radius: 5px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        }
+        .active {
+            display: block;
+        }
+    </style>
+</head>
+<body>
+    <header class="header2">
+        <a href="/"> <img src="{% static 'assets/Clean Web-2.png' %}" alt="logo" height="150px" width="150px"> </a>
+     </header>
+    <div class="nav_bar">
+        <nav class="topnav" id="=myTopnav">
+            <a href="/"><i class="fa fa-fw fa-home"></i>Home</a>
+            <a href="/about">About</a>
+            <a href="/testimonial">Testimonials</a>
+            <a class='active' href="/guidelines">Guidelines</a>
+            <a href="/contact">Contact</a>
+            <input type="text" class="search" placeholder="Search.." >
+            <!-- to make web responsive in small screen -->
+        </nav>
+    </div> 
+    <div class="container" >
+        <h1 style="font-size: 50px;">Game Guidelines</h1>
+        
+        <h2 onclick="toggleContent('objective')">1. Understand the Objective</h2>
+        <div id="objective" class="content">
+            <p>The primary objective of the Cyberbullying Awareness Game is to raise awareness about cyberbullying and promote empathy, support, and respect among players. Take your time to explore the game content, engage with the interactive features, and learn about different forms of cyberbullying and their impact.</p>
+        </div>
+        
+        <h2 onclick="toggleContent('navigate')">2. Navigate the Game Interface</h2>
+        <div id="navigate" class="content">
+            <p>Familiarize yourself with the game interface, including menus, buttons, and navigation options. Use the provided controls to navigate through different sections of the game, access content, and interact with various features such as video scenarios, quizzes, and challenges.</p>
+        </div>
+        
+        <h2 onclick="toggleContent('participate')">3. Participate in Surveys and Quizzes</h2>
+        <div id="participate" class="content">
+            <p>Complete surveys to provide feedback on your gaming experience, share your thoughts, and help improve the game. Participate in quizzes to test your knowledge and understanding of cyberbullying issues and earn points or stars based on your performance.</p>
+        </div>
+        
+        <h2 onclick="toggleContent('scoring')">4. Scoring Policy</h2>
+        <div id="scoring" class="content">
+            <p>As part of the Cyberbullying Awareness Game, you'll earn points or stars by successfully completing quizzes, challenges, and other activities within the game. To qualify for the training completion assurance, you must achieve a minimum score or earn a certain number of stars.</p>
+            <ul>
+                <li>Earn at least three stars to qualify for the training completion assurance.</li>
+                <li>Attempt quizzes and challenges again if you don't meet the qualifying criteria initially.</li>
+                <li>To pass the training, aim to achieve a total score of at least 300 out of 500 points across all sections of the game.</li>
+                <li>Once you meet the passing criteria, you'll be eligible to receive the passing award and be recognized as qualified and trained in cyberbullying awareness.</li>
+            </ul>
+        </div>
+        
+        <!-- Add more guidelines as needed -->
+        
+        <h2 onclick="toggleContent('connected')">8. Stay Connected</h2>
+        <div id="connected" class="content">
+            <div class="social-links">
+                <a href="#">Follow Us on Facebook</a>
+                <a href="#">Follow Us on Twitter</a>
+                <a href="#">Follow Us on Instagram</a>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        function toggleContent(id) {
+            var content = document.getElementById(id);
+            if (content.style.display === "block") {
+                content.style.display = "none";
+            } else {
+                content.style.display = "block";
+            }
+        }
+    </script>
+</body>
+</html>

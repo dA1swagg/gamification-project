@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Quiz Game - Score</title>
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'style.css' %}">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f0f0f0;
+        }
+        .container {
+            max-width: 600px;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: #fff;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            text-align: center;
+            color:black;
+        }
+        h1 {
+            color: #333;
+        }
+        p {
+            margin-bottom: 20px;
+        }
+        .container {
+            max-width: 600px;
+            margin: 0 auto;
+            text-align: center;
+            padding: 20px;
+            background-color: #f9f9f9;
+            border-radius: 5px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+        .stars {
+            margin-bottom: 20px;
+        }
+        .star {
+            font-size: 24px;
+            color: gray;
+        }
+        .star.gold {
+            color: gold;
+        }
+        .btn {
+            display: inline-block;
+            padding: 10px 20px;
+            background-color: #007bff;
+            color: #fff;
+            text-decoration: none;
+            border-radius: 5px;
+            transition: background-color 0.3s;
+        }
+        .btn:hover {
+            background-color: #0056b3;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Your Quiz Score</h1>
+        <p>Hello, <span id="username">{{ request.user.username }}</span>!</p>
+        <p>Your score: <span id="userScore">{{ score }}</span></p>
+        <div class="stars">
+            {% for _ in "x"|ljust:5 %}
+                {% if forloop.counter0 < correct_answers %}
+                    <span class="star gold">&#9733;</span>
+                {% else %}
+                    <span class="star">&#9733;</span>
+                {% endif %}
+            {% endfor %}
+        </div>
+        {% if score >= 300 %}
+            <p>Congratulations! You passed the quiz.</p>
+        {% else %}
+            <p>Unfortunately, you have not scored enough to qualify.</p>
+            <p>Would you like to try again?</p>
+            <a href="{% url 'video' %}"><button>Try Again</button></a>
+             <p> Would you like to quit?</p>
+            <a href="{% url 'home' %}" class="btn">Quit</a>
+        {% endif %}
+         <!-- Feedback form -->
+        <h2>Feedback</h2>
+        <form method="post">
+            {% csrf_token %}
+            {{ feedback_form.as_p }}
+            <button type="submit">Submit Feedback</button>
+        </form>
+
+    </div>
+    <script src="{% static 'script.js' %}"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // Save score and username to the database
+            const username = document.getElementById('username').innerText;
+            const score = parseInt(document.getElementById('userScore').innerText);
+            fetch('{% url "save_score" %}', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                    'X-CSRFToken': '{{ csrf_token }}',
+                },
+                body: JSON.stringify({ username: username, score: score }),
+            })
+            .then(response => {
+                if (response.ok) {
+                    console.log('Score and username saved successfully!');
+                } else {
+                    console.error('Failed to save score and username to the database.');
+                }
+            })
+            .catch(error => console.error('Error occurred while saving score and username:', error));
+        });
+    </script>
+</body>
+</html>
